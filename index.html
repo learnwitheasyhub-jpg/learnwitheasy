@@ -25,6 +25,7 @@
       color: white;
       margin: 0 15px;
       text-decoration: none;
+      cursor: pointer;
     }
     nav a:hover {
       text-decoration: underline;
@@ -36,6 +37,7 @@
       width: 80%;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none; /* hidden by default */
     }
     footer {
       background: #333;
@@ -67,8 +69,9 @@
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="showSection('login')">Register / Login</a>
   </nav>
 
   <!-- About Section -->
@@ -84,7 +87,7 @@
   </section>
 
   <!-- Register / Login Section -->
-  <section>
+  <section id="login">
     <h2>Register / Login</h2>
     <form>
       <label>Email:</label><br>
@@ -100,6 +103,20 @@
   <footer>
     <p>&copy; 2026 Learn With Easy</p>
   </footer>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      document.getElementById('about').style.display = 'none';
+      document.getElementById('contact').style.display = 'none';
+      document.getElementById('login').style.display = 'none';
+      // Show the clicked section
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    // Show login by default
+    showSection('login');
+  </script>
 
 </body>
 </html>
